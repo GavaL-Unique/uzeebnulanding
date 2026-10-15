@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="mn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>UzeeBnu — онлайн тоглоомууд</title>
+  <meta name="description" content="Найзуудтайгаа онлайнаар тоглох монгол тоглоомууд: Масс, Муушиг, UzeeBnu бизнес тоглоом." />
+  <meta name="theme-color" content="#0d0b16" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d0b16;
+      --panel: #17142a;
+      --line: rgba(255, 255, 255, 0.08);
+      --ink: #f2f0fa;
+      --muted: #a29cbf;
+      --gold: #f4c95d;
+      --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+      color-scheme: dark;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(900px 500px at 15% -10%, rgba(124, 92, 255, 0.22), transparent 70%),
+        radial-gradient(800px 500px at 100% 10%, rgba(34, 134, 90, 0.2), transparent 70%),
+        var(--bg);
+      color: var(--ink);
+      font-family: 'Rubik', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+    header { padding: 28px 0 0; }
+    .logo { font-weight: 800; font-size: 22px; letter-spacing: 0.2px; }
+    .logo span { color: var(--gold); }
+
+    .hero { padding: 64px 0 40px; }
+    .hero h1 {
+      margin: 0 0 14px;
+      font-size: clamp(32px, 6vw, 56px);
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .hero p { margin: 0; max-width: 560px; color: var(--muted); font-size: 18px; line-height: 1.5; }
+
+    .games {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      padding-bottom: 64px;
+    }
+    .game {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      transition: transform 0.25s var(--ease), border-color 0.25s, box-shadow 0.25s;
+    }
+    .game:hover, .game:focus-visible {
+      transform: translateY(-4px);
+      border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+      box-shadow: 0 18px 40px -18px var(--accent);
+      outline: none;
+    }
+    .art {
+      height: 170px;
+      display: grid;
+      place-items: center;
+      font-size: 72px;
+      background: var(--art);
+      position: relative;
+    }
+    .art::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(120% 90% at 50% 0%, transparent 40%, rgba(0, 0, 0, 0.35));
+    }
+    .art .emoji { position: relative; z-index: 1; filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.4)); transition: transform 0.3s var(--ease); }
+    .game:hover .emoji { transform: scale(1.08) rotate(-4deg); }
+    .body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .body h2 { margin: 0; font-size: 22px; font-weight: 700; }
+    .body p { margin: 0; color: var(--muted); line-height: 1.5; font-size: 15px; flex: 1; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tags span {
+      font-size: 12px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+    }
+    .play {
+      margin-top: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .game.dice    { --accent: #7c5cff; --art: linear-gradient(135deg, #2a2050, #4a35a0); }
+    .game.card    { --accent: #e0564f; --art: linear-gradient(135deg, #3b1414, #8a2a2a); }
+    .game.muushig { --accent: #22865a; --art: linear-gradient(135deg, #0a3624, #22865a); }
+
+    footer { border-top: 1px solid var(--line); padding: 22px 0 32px; color: var(--muted); font-size: 14px; }
+
+    @media (max-width: 480px) {
+      .wrap { padding: 0 16px; }
+      .hero { padding: 40px 0 28px; }
+      .hero p { font-size: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .game, .emoji { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <div class="logo">Uzee<span>Bnu</span></div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Найзуудтайгаа<br />онлайнаар тогло</h1>
+      <p>Бүртгэлгүйгээр шууд ороод өрөө үүсгэ, холбоосоо найзууддаа илгээ. Хүн дутвал бот орлоно.</p>
+    </section>
+
+    <section class="games" aria-label="Тоглоомууд">
+      <a class="game dice" href="https://dice.uzeebnu.online">
+        <div class="art"><span class="emoji">🎲</span></div>
+        <div class="body">
+          <h2>UzeeBnu</h2>
+          <p>Монголын 21 аймаг, Улаанбаатар, Дэлхийн газрын зурагтай бизнес тоглоом. Газар аваад, гэр бариад, түрээс ав.</p>
+          <div class="tags"><span>2–8 тоглогч</span><span>Хүчит карт</span><span>Бот</span></div>
+          <span class="play">Тоглох →</span>
+        </div>
+      </a>
+
+      <a class="game card" href="https://card.uzeebnu.online">
+        <div class="art"><span class="emoji">🃏</span></div>
+        <div class="body">
+          <h2>Масс</h2>
+          <p>8 тоглогч, 2 баг, 43 хөзөртэй «Масс». Багаараа дуут чатаар ярилцаж тогло.</p>
+          <div class="tags"><span>8 тоглогч</span><span>2 баг</span><span>Дуут чат</span></div>
+          <span class="play">Тоглох →</span>
+        </div>
+      </a>
+
+      <a class="game muushig" href="https://muushig.uzeebnu.online">
+        <div class="art"><span class="emoji">♠️</span></div>
+        <div class="body">
+          <h2>Муушиг</h2>
+          <p>5 тоглогч, 32 хөзөртэй сонгодог «Муушиг». Орох уу, хаях уу — ноёноо бод.</p>
+          <div class="tags"><span>5 тоглогч</span><span>Онооны самбар</span><span>Бот</span></div>
+          <span class="play">Тоглох →</span>
+        </div>
+      </a>
+    </section>
+  </main>
+
+  <footer class="wrap">© <span id="y">2026</span> UzeeBnu</footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
