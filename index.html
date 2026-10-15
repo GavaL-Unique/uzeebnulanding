@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>UzeeBnu — онлайн тоглоомууд</title>
-  <meta name="description" content="Найзуудтайгаа онлайнаар тоглох монгол тоглоомууд: Масс, Муушиг, UzeeBnu бизнес тоглоом." />
+  <meta name="description" content="Найзуудтайгаа онлайнаар тоглох монгол тоглоомууд: Масс, Муушиг, Sequence 3D, UzeeBnu бизнес тоглоом." />
   <meta name="theme-color" content="#0d0b16" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -115,6 +115,16 @@
     .game.dice    { --accent: #7c5cff; --art: linear-gradient(135deg, #2a2050, #4a35a0); }
     .game.card    { --accent: #e0564f; --art: linear-gradient(135deg, #3b1414, #8a2a2a); }
     .game.muushig { --accent: #22865a; --art: linear-gradient(135deg, #0a3624, #22865a); }
+    .game.sequence { --accent: #3d7bff; --art: radial-gradient(120% 100% at 50% 0%, #3a2a6e, #120d24); }
+    .chips { display: flex; gap: 6px; }
+    .chips i {
+      width: 30px; height: 30px; border-radius: 50%; display: block;
+      border: 4px dashed rgba(255, 255, 255, 0.9);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45), inset 0 -3px 0 rgba(0, 0, 0, 0.25);
+    }
+    .chips i:nth-child(odd) { background: #3d7bff; }
+    .chips i:nth-child(even) { background: #18c47c; transform: translateY(-10px); }
+    .chips i:nth-child(3) { background: #ff3d5e; box-shadow: 0 0 0 3px #e9bf62, 0 6px 14px rgba(0, 0, 0, 0.45); }
 
     footer { border-top: 1px solid var(--line); padding: 22px 0 32px; color: var(--muted); font-size: 14px; }
 
@@ -166,6 +176,16 @@
           <h2>Муушиг</h2>
           <p>5 тоглогч, 32 хөзөртэй сонгодог «Муушиг». Орох уу, хаях уу — ноёноо бод.</p>
           <div class="tags"><span>5 тоглогч</span><span>Онооны самбар</span><span>Бот</span></div>
+          <span class="play">Тоглох →</span>
+        </div>
+      </a>
+
+      <a class="game sequence" href="https://sequence.uzeebnu.workers.dev">
+        <div class="art"><span class="emoji chips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div>
+        <div class="body">
+          <h2>Sequence 3D</h2>
+          <p>5 чипээ дараалуулж мөр үүсгэ. 3D самбар дээр ганцаараа эсвэл багаараа, боолтоороо өрсөлдөгчөө хаа.</p>
+          <div class="tags"><span>2–12 тоглогч</span><span>Ганцаараа / Багаар</span><span>3D</span><span>Бот</span></div>
           <span class="play">Тоглох →</span>
         </div>
       </a>
